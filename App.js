@@ -44,7 +44,7 @@ export default function App() {
       </View>
       <View style={styles.buttonpart}>
         <TouchableOpacity style={styles.leftbutton}>
-          <Text style={styles.search}></Text>
+          <Text style={styles.search}>검색</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.rightbutton}>
@@ -54,6 +54,17 @@ export default function App() {
         <TouchableOpacity style={styles.button}>
           <Text style={styles.plus}></Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.boxpart}>
+       <View style={styles.tdl}>
+         <Text>To do list</Text>
+       </View>
+       <View style={styles.memo}>
+         <Text>Memo</Text>
+       </View>
+       <View style={styles.diary}>
+         <Text>Diary</Text>
+       </View>
       </View>
     </View>
   );
@@ -99,8 +110,9 @@ const styles = StyleSheet.create({
     underlineColor: "",
   },
   buttonpart: {
-    flex: 0.2,
+    flex: 0.15,
     flexDirection: "row",
+    marginTop:80
   },
   leftbutton: {
     backgroundColor: "rgb(235,235,235)",
@@ -110,6 +122,9 @@ const styles = StyleSheet.create({
     height: 60,
     borderRadius: 50,
     marginLeft: 100,
+  },
+  search: {
+    marginLeft: -30
   },
   button: {
     backgroundColor: "black",
