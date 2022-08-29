@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View, ScrollView } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   return (
@@ -34,6 +35,7 @@ export default function App() {
         </View>
         <View style={styles.underline_menu}>
           <Text>알림</Text>
+          <FontAwesome name="toggle-on" size={22} color="black" />
         </View>
         <View style={styles.menu}>
           <Text>언어</Text>
@@ -121,6 +123,10 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     paddingBottom: 15,
     borderColor: "lightgray",
+    flex:1,
+    flexDirection:"row",
+    justifyContent: "space-between",
+    alignItems:"center"
   },
   menu: { 
     paddingTop: 15 
