@@ -1,7 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Alert, TouchableOpacity } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
-import { Ionicons } from '@expo/vector-icons';
 
 export default function App() {
   return (
@@ -16,9 +15,12 @@ export default function App() {
         <View style={styles.nickname}>
           <Text style={styles.nickname_text}>이도엽</Text>
         </View>
-        <View style={styles.profile_botton}>
-          <Text style={{ color: "white" }}>프로필 수정하기</Text>
-        </View>
+        <TouchableOpacity
+        style={styles.profile_botton}
+        onPress={() => Alert.alert('프로필 변경!')}
+        >
+        <Text style={{color:"white"}}>프로필 수정하기</Text>
+      </TouchableOpacity>
       </View>
       <View style={styles.setting}>
         <View style={styles.title_setting1}>
