@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
 import { SimpleLineIcons } from "@expo/vector-icons";
 import { Octicons } from "@expo/vector-icons";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -11,7 +11,10 @@ export default function App() {
       <View style={styles.title}>
         <Text style={styles.Note_us}>Note us!</Text>
       </View>
-      <View style={styles.bottom_line}>
+      <TouchableOpacity 
+      style={styles.bottom_line}
+      onPress={() => Alert.alert('memo')}
+      >
         <View style={styles.menu}>
           <View style={styles.icons}>
             <SimpleLineIcons name="note" size={24} color="black" />
@@ -30,8 +33,11 @@ export default function App() {
             신규 메모 생성하기
           </Text>
         </View>
-      </View>
-      <View style={styles.bottom_line}>
+      </TouchableOpacity>
+      <TouchableOpacity 
+      style={styles.bottom_line}
+      onPress={() => Alert.alert('diary')}
+      >
         <View style={styles.menu}>
           <View style={styles.icons}>
             <Octicons name="checklist" size={28} color="black" />
@@ -50,8 +56,11 @@ export default function App() {
             신규 다이어리 생성하기
           </Text>
         </View>
-      </View>
-      <View style={styles.Memo}>
+      </TouchableOpacity>
+      <TouchableOpacity 
+      style={styles.Memo}
+      onPress={() => Alert.alert('to do list')}
+      >
         <View style={styles.menu}>
           <View style={styles.icons}>
             <MaterialCommunityIcons
@@ -74,7 +83,7 @@ export default function App() {
             신규 리스트 생성하기
           </Text>
         </View>
-      </View>
+      </TouchableOpacity>
       <View style={styles.margin}></View>
     </View>
   );
