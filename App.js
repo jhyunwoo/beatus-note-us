@@ -1,9 +1,14 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { AntDesign } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
+import { StatusBar } from "expo-status-bar";
+import { Alert, StyleSheet, Text, View, TextInput, SafeAreaView, TextInputBase } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
+import { Button, TouchableOpacity, } from "react-native-web";
+import React, { Component } from 'react';
 
 export default function App() {
+  const UselessTextInput = () => {
+    const [text, onChangeText] = React.useState("Useless Text");
+    const [number, onChangeNumber] = React.useState(null);
+  } 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -11,48 +16,52 @@ export default function App() {
       <Text style={styles.SignUp}>회원 가입</Text>
 
       <View style={styles.Id}>
-        <Text style={styles.IdText}>아이디를 입력해주세요</Text>
+        <TextInput style={styles.IdText}
+        placeholder = "아이디를 입력해주세요"/>
       </View>
 
       <Text style={styles.Id01}>사용 가능한 아이디입니다!</Text>
-     
+
       <View style={styles.Password}>
-        <Text style={styles.PasswordText}>비밀번호를 입력해주세요</Text>
+        <TextInput style={styles.PasswordText}
+        placeholder = "비밀번호를 입력해주세요"/>
       </View>
 
       <View style={styles.Password2}>
-        <Text style={styles.Password3}>비밀번호 확인</Text>
-      </View>
-
-      <View style={styles.NickName}>
-        <Text style={styles.NickNameText}>닉네임을 입력해주세요</Text>
+        <TextInput style={styles.Password3}
+        placeholder = "비밀번호 확인"/>
       </View>
 
       <Text style={styles.NickName01}>사용 가능한 닉네임입니다!</Text>
 
-      <View style={styles.SignUpButton}>
-        <Text style={styles.SignUpButtonText}>회원 가입</Text>
-      </View>
       
-      <View style={styles.Icon}>
-       <AntDesign name="google" size={24} color="black" />
-       <AntDesign name="twitter" size={24} color="black" />
-      </View>
+      <TouchableOpacity 
+     style={styles.SignUpButton}
+     >
+       <Text style={styles.SignUpButtonText}>회원 가입</Text>
+     </TouchableOpacity>
 
+      <View style={styles.Icon}>
+        <AntDesign name="google" size={24} color="black" />
+        <AntDesign name="twitter" size={24} color="black" />
+      </View>
+  
+
+    
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   SignUp: {
     fontSize: 35,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 100,
   },
 
@@ -60,15 +69,16 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(224,224,224)",
     borderRadius: 10,
     marginTop: 25,
-
+    
   },
-  
+
   IdText: {
     marginRight: 212,
-    color:"rgb(170,170,170)",
+    color: "rgb(170,170,170)",
     marginLeft: 10,
     marginBottom: 17,
     marginTop: 17,
+ 
   },
 
   Password: {
@@ -79,10 +89,10 @@ const styles = StyleSheet.create({
 
   PasswordText: {
     marginRight: 200,
-    color:"rgb(170,170,170)",
+    color: "rgb(170,170,170)",
     marginLeft: 10,
     marginBottom: 17,
-    marginTop: 17
+    marginTop: 17,
   },
 
   Password2: {
@@ -92,11 +102,12 @@ const styles = StyleSheet.create({
   },
 
   Password3: {
-    marginRight: 270,
-    color:"rgb(170,170,170)",
+    marginRight: 200,
+    color: "rgb(170,170,170)",
     marginLeft: 10,
     marginBottom: 17,
-    marginTop: 17
+    marginTop: 17,
+    width: -30,
   },
 
   NickName: {
@@ -107,10 +118,10 @@ const styles = StyleSheet.create({
 
   NickNameText: {
     marginRight: 215,
-    color:"rgb(170,170,170)",
+    color: "rgb(170,170,170)",
     marginLeft: 10,
     marginBottom: 17,
-    marginTop: 17
+    marginTop: 17,
   },
 
   SignUpButton: {
@@ -122,28 +133,38 @@ const styles = StyleSheet.create({
   SignUpButtonText: {
     marginRight: 154,
     marginLeft: 154,
-    color:"rgb(255,255,255)",
+    color: "rgb(255,255,255)",
     marginBottom: 17,
     marginTop: 17,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 
   Id01: {
-    color:"rgb(170,170,170)",
+    color: "rgb(170,170,170)",
     marginRight: 200,
     marginTop: 5,
-    fontSize: 12
+    fontSize: 12,
   },
 
   NickName01: {
-    color:"rgb(170,170,170)",
+    color: "rgb(170,170,170)",
     marginRight: 200,
     marginTop: 5,
-    fontSize: 12
+    fontSize: 12,
   },
 
   Icon: {
     flexDirection: "row",
+  },
 
-  }
+  text: {
+    fontWeight: "bold"
+  },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
+  },
 });
