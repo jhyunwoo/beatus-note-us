@@ -13,7 +13,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
 
-      <Text style={styles.SignUp}>회원 가입</Text>
+      <Text style={styles.SignUp}>회원 가입 기분좋구만유</Text>
 
       <View style={styles.Id}>
         <TextInput style={styles.IdText}
