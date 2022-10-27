@@ -1,152 +1,67 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, TouchableOpacity, Alert } from "react-native";
-import { SimpleLineIcons } from "@expo/vector-icons";
-import { Octicons } from "@expo/vector-icons";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Button } from "react-native-web";
+import { StyleSheet, Text, View } from "react-native";
+import { Calendar } from 'react-native-calendars';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.title}>
-        <Text style={styles.Note_us}>Note us!</Text>
+      <View style={styles.titlepart}>
+        <Text style={styles.title}>Diary</Text>
       </View>
-      <TouchableOpacity 
-      style={styles.bottom_line}
-      onPress={() => Alert.alert('memo')}
-      >
-        <View style={styles.menu}>
-          <View style={styles.icons}>
-            <SimpleLineIcons name="note" size={24} color="black" />
+      <View style={styles.memopart}>
+        <Calendar style={styles.diary}></Calendar>
+        <View style={styles.memo}>
+          <View style={styles.comment_title}>
+            <Text style={styles.today_comment}>today's</Text>
+            <Text style={styles.today_comment2}>comment</Text>
           </View>
-          <View style={styles.title_Text}>
-            <Text style={styles.texts}>Memo</Text>
-          </View>
-        </View>
-        <View style={styles.date}>
-          <Text style={styles.font}>
-            가장 최근 작성 날짜 : _월 _일
-          </Text>
-        </View>
-        <View style={styles.date}>
-          <Text style={{ fontWeight: "bold" }}>
-            신규 메모 생성하기
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity 
-      style={styles.bottom_line}
-      onPress={() => Alert.alert('diary')}
-      >
-        <View style={styles.menu}>
-          <View style={styles.icons}>
-            <Octicons name="checklist" size={28} color="black" />
-          </View>
-          <View style={styles.title_Text}>
-            <Text style={styles.texts}>Diary</Text>
+          <View style={styles.comment}>
+            <Text>오늘은 사감쌤이 평소에는 30분에 깨우러 오시는 데 45분에 깨우러 오셨다. 다급하게 씻고 나갔지만 8시 1분에 기숙사를 나와 지각을 했다. 아침을 먹고 면학실로 갔다. 수학문제를 좀 풀다가 비터스 과제를 했다. 비터스에서 멋진 앱을 만들었으면 좋겠다.ㅎㅎ </Text>
           </View>
         </View>
-        <View style={styles.date}>
-          <Text style={styles.font}>
-            가장 최근 작성 날짜 : _월 _일
-          </Text>
-        </View>
-        <View style={styles.date}>
-          <Text style={styles.font}>
-            신규 다이어리 생성하기
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <TouchableOpacity 
-      style={styles.Memo}
-      onPress={() => Alert.alert('to do list')}
-      >
-        <View style={styles.menu}>
-          <View style={styles.icons}>
-            <MaterialCommunityIcons
-              name="calendar-edit"
-              size={30}
-              color="black"
-            />
-          </View>
-          <View style={styles.title_Text}>
-            <Text style={styles.texts}>To do list</Text>
-          </View>
-        </View>
-        <View style={styles.date}>
-          <Text style={styles.font}>
-            가장 최근 작성 날짜 : _월 _일
-          </Text>
-        </View>
-        <View style={styles.date}>
-          <Text style={styles.font}>
-            신규 리스트 생성하기
-          </Text>
-        </View>
-      </TouchableOpacity>
-      <View style={styles.margin}></View>
+      </View>
     </View>
   );
 }
-
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
-    alignItems: "center" 
+  container: {
+    backgroundColor: "#fff",
+  },
+  titlepart: {
+    alignItems: "center",
+    justifyContent: "center",
+    height : 200
   },
   title: {
-    flex: 5,
-    backgroundColor: "white",
-    justifyContent: "center",
+    fontSize: 40,
+    marginTop: 100,
+    color: "rgb(68, 116, 246)",
+    fontWeight : "bold"
+  },
+  memopart: {
     alignItems: "center",
+    height : 600
   },
-  Note_us: {
-    fontSize: 50,
-    fontWeight: "bold",
-    marginTop: 10,
+  diary : {
+    width : 375
   },
-  Memo: {
-    flex: 3,
-    backgroundColor: "White",
-    alignItems: "center",
-    justifyContent: "center",
+  memo : {
+    paddingTop : 10,
+    width : 335
   },
-  bottom_line: {
-    flex: 3,
-    backgroundColor: "White",
-    alignItems: "center",
-    justifyContent: "center",
-    borderBottomWidth: 5,
-    borderBottomColor: "lightgray",
-    width: "60%",
+  comment : {
+    marginTop : 10
   },
-  texts: {
-    fontSize: 30,
-    fontWeight: "bold",
-    color: "rgb(68,116,246)",
+  today_comment : {
+    fontSize : 23,
+    fontWeight : "bold"
   },
-  menu: { 
-    flex: 1.5, 
-    justifyContent: "center", 
-    flexDirection: "row", 
+  comment_title: {
+    flexDirection : "row"
   },
-  icons: { 
-    justifyContent: "center", 
-    marginRight: 5, 
-  },
-  title_Text: { 
-    justifyContent: "center", 
-    marginLeft: 5, 
-  },
-  date: { 
-    flex: 1, 
-    justifyContent: "center", 
-  },
-  font: { 
-    fontWeight: "bold", 
-  },
-  margin: { 
-    flex: 1, 
-    backgroundColor: "white", 
+  today_comment2 : {
+    fontSize:23,
+    color : "rgb(68, 116, 246)",
+    marginLeft : 5,
+    fontWeight : "bold"
   }
 });
