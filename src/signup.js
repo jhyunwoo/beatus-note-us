@@ -1,43 +1,52 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import { AntDesign } from "@expo/vector-icons";
+import { Alert, StyleSheet, Text, View, TextInput, SafeAreaView, TextInputBase, TouchableOpacity } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
+import React, { Component } from 'react';
+
 export default function App() {
+  const UselessTextInput = () => {
+    const [text, onChangeText] = React.useState("Useless Text");
+    const [number, onChangeNumber] = React.useState(null);
+  } 
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
 
-      <Text style={styles.SignUp}>회원 가입</Text>
+      <Text style={styles.SignUp}>회원 가입 기분좋구만유</Text>
 
       <View style={styles.Id}>
-        <Text style={styles.IdText}>아이디를 입력해주세요</Text>
+        <TextInput style={styles.IdText}
+        placeholder = "아이디를 입력해주세요"/>
       </View>
 
       <Text style={styles.Id01}>사용 가능한 아이디입니다!</Text>
 
       <View style={styles.Password}>
-        <Text style={styles.PasswordText}>비밀번호를 입력해주세요</Text>
+        <TextInput style={styles.PasswordText}
+        placeholder = "비밀번호를 입력해주세요"/>
       </View>
 
       <View style={styles.Password2}>
-        <Text style={styles.Password3}>비밀번호 확인</Text>
-      </View>
-
-      <View style={styles.NickName}>
-        <Text style={styles.NickNameText}>닉네임을 입력해주세요</Text>
+        <TextInput style={styles.Password3}
+        placeholder = "비밀번호를 확인해주세요"/>
       </View>
 
       <Text style={styles.NickName01}>사용 가능한 닉네임입니다!</Text>
 
-      <View style={styles.SignUpButton}>
-        <Text style={styles.SignUpButtonText}>회원 가입</Text>
-      </View>
+      <TouchableOpacity 
+       style={styles.SignUpButton}
+      >
+      <Text style={styles.SignUpButtonText}>회원 가입</Text>
+      </TouchableOpacity>
 
       <View style={styles.Icon}>
         <AntDesign name="google" size={24} color="black" />
         <AntDesign name="twitter" size={24} color="black" />
       </View>
+  
+
+    
     </View>
   );
 }
@@ -59,6 +68,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgb(224,224,224)",
     borderRadius: 10,
     marginTop: 25,
+    
   },
 
   IdText: {
@@ -67,6 +77,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 17,
     marginTop: 17,
+ 
   },
 
   Password: {
@@ -90,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   Password3: {
-    marginRight: 270,
+    marginRight: 200,
     color: "rgb(170,170,170)",
     marginLeft: 10,
     marginBottom: 17,
@@ -142,5 +153,16 @@ const styles = StyleSheet.create({
 
   Icon: {
     flexDirection: "row",
+  },
+
+  text: {
+    fontWeight: "bold"
+  },
+
+  input: {
+    height: 40,
+    margin: 12,
+    borderWidth: 1,
+    padding: 10,
   },
 });

@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
     width : 375
   },
   memo : {
-    paddingTop : 10,
     width : 335
   },
   comment : {

@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from "react-native";
 
 export default function App() {
   return (
@@ -9,30 +9,36 @@ export default function App() {
       </View>
 
       <View style={styles.Id}>
-        <Text style={styles.Id1}>아이디를 입력하세요</Text>
+        <TextInput style={styles.Id1}
+        placeholder = "아이디를 입력하새요"/>
       </View>
 
       <View style={styles.PasswordBox}>
-        <Text style={styles.PasswordText}>비밀번호를 입력하세요</Text>
+        <TextInput style={styles.PasswordText}
+        placeholder = "비밀번호룰 입력하세요"/>
       </View>
 
       <View style={{ flexDirection: "row" }}>
-        <View style={styles.item}></View>
+        <TouchableOpacity style={styles.item}></TouchableOpacity>
         <Text style={styles.AutoLoginText}>로그인 상태 유지</Text>
       </View>
 
-      <View style={styles.LoginButton}>
+      <TouchableOpacity style={styles.LoginButton}>
         <Text style={styles.LoginButton1}>로그인</Text>
-      </View>
+      </TouchableOpacity>
 
-      <View style={styles.SignUp}>
+      <TouchableOpacity style={styles.SignUp}>
         <Text style={styles.SignUpText}>회원가입</Text>
-      </View>
+      </TouchableOpacity>
 
       <View style={{ flexDirection: "row" }}>
         <View style={styles.FindId}></View>
-        <Text style={styles.FindIdText}>아이디 찾기</Text>
-        <Text style={styles.FindPasswordText}>비밀번호 찾기</Text>
+        <TouchableOpacity>
+          <Text style={styles.FindIdText}>아이디 찾기</Text>
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Text style={styles.FindPasswordText}>비밀번호 찾기</Text>
+        </TouchableOpacity>
       </View>
 
       <StatusBar style="auto" />
@@ -121,6 +127,7 @@ const styles = StyleSheet.create({
     marginTop: 9,
     backgroundColor: "rgb(53,160,255)",
     borderRadius: 10,
+    marginBottom : 10
   },
 
   SignUpText: {
